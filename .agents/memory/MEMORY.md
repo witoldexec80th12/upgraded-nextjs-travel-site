@@ -1,0 +1,11 @@
+- [Airtable sync schema](airtable-sync-schema.md) — keep Status as text or predefine select options; use UTC ISO timestamps ending in `Z`.
+- [Site build sequence](site-build-sequence.md) — prioritize admin trip planning before the design system, public pages, and launch.
+- [Deployment package registry](deployment-package-registry.md) — check lockfile tarball URLs for Replit-only hosts before building outside Replit.
+- [Tailwind source scanning](vite-source-scanning.md) — keep discovery scoped to frontend sources to prevent reload loops from runtime files.
+- [Git push workflow](git-push-workflow.md) — the user pushes project changes to the remote themselves via shell.
+- [Next.js foundation](nextjs-foundation.md) — migrate to static-first Next.js, preserve the design, and make configuration reusable across sites.
+- [Next.js development](nextjs-development.md) — Webpack avoids a Replit development hydration failure seen with Turbopack; production builds use the default bundler.
+- [Google Sheets connector runtime](google-sheets-connector-runtime.md) — the Python connector package is unavailable in this registry; use the Replit Node SDK for this project.
+- [External PostgreSQL hosting](database-hosting.md) — the user selected Neon through DATABASE_URL; do not assume the app uses Replit's built-in database.
+- [Daily scan grouping](scraper-scheduling-preference.md) — user proposed provider-based scans, half an hour apart in early-morning CET; exact times/timezone remain unconfirmed.
+- [Availability meanings](availability-result-semantics.md) — user guide: counts are not exact totals, groups may split rooms, and closed does not mean sold out.

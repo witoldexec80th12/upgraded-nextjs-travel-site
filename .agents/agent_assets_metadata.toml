@@ -1,0 +1,58 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "hfBU8rlxyW6Amn30zO65L"
+uri = "file://generated-artifacts/scraper-benchmark/combined/report-live.md"
+type = "text"
+title = "Scraper benchmark and Vercel feasibility report"
+description = "Measured live timings, request-level outcomes, workload estimates, and the remaining requirements for an isolated Vercel proof. No production data was written."
+logical_id = "a51c4186-7fa3-45d0-aae3-e4f5ab9de69b"
+content_hash = "sha256:4f3306b3dc7e91a18964009eec8ab78be8e5b85e2af2b70ee533cd94d7f79d20"
+size = 8391
+mtime_ms = 1794311900709
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:337a8f2f-099b-4b73-b79d-ab7df0c4ffd6/a51c4186-7fa3-45d0-aae3-e4f5ab9de69b/ea84472e-7233-44ac-a5b8-4052d5e103f3"
+storage_version_token = "1794312027237138"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "MjCKcjfADhtsBUVq58vDj"
+uri = "file://generated-artifacts/hut-site-audit/hut-booking-audit.csv"
+type = "table"
+title = "All 26 huts — booking-site audit"
+description = "One row per hut with the observed booking system, access limitations, evidence link, and next action. This is not a date-availability scan."
+logical_id = "2d5d222f-ee58-49cd-845f-60d2152d8530"
+content_hash = "sha256:c83ef294dfa0e735a21b136ea9a9fb629c7b1ee8d4a8f4d59d2a36a3badd8ac8"
+size = 7942
+mtime_ms = 1794313109450
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:337a8f2f-099b-4b73-b79d-ab7df0c4ffd6/2d5d222f-ee58-49cd-845f-60d2152d8530/3c93f102-fd28-4b1a-a533-7ca7a612ce61"
+storage_version_token = "1794313180939963"
+content_type = "text/csv"
+
+[[outputs]]
+id = "cdTku7qvunqZHPLHLSMHX"
+uri = "file://docs/HUT-BOOKING-AUDIT.md"
+type = "text"
+title = "Hut booking audit — findings and recommendations"
+description = "Detailed findings for all 26 huts, including the additional Foundation calendar, Bukly route changes, provider restrictions, and new adapter candidates."
+logical_id = "f085737d-6fae-4173-a5d7-9f951d5e5ef3"
+content_hash = "sha256:54ea1dfb9bc32d7291ff8c6b6722d00954e660859a65a62120d71e8175b92a27"
+size = 12960
+mtime_ms = 1794313029850
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:337a8f2f-099b-4b73-b79d-ab7df0c4ffd6/f085737d-6fae-4173-a5d7-9f951d5e5ef3/53407ca8-d924-4f6e-844d-14b12cabcda5"
+storage_version_token = "1794313181464402"
+content_type = "text/markdown"
+
+[[outputs]]
+id = "Vp2Q482dcCzxbwmbUhjqT"
+uri = "file://generated-artifacts/foundation-links.html"
+type = "html"
+title = "Internal-link audit: all findings"
+description = "Full production-HTML crawl of 232 public pages, with every error and warning, source URL, destination URL, and link text."
+logical_id = "9966dbba-3c57-4b72-b978-06fa40417d8d"
+content_hash = "sha256:78493d6e0a44493f540d8972947a871be542e08cfa721cb41b32662e22608b91"
+size = 553013
+mtime_ms = 1795021805526
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:337a8f2f-099b-4b73-b79d-ab7df0c4ffd6/9966dbba-3c57-4b72-b978-06fa40417d8d/2af6bcf2-f55e-447d-aa74-69c2a915e170"
+storage_version_token = "1795021828585058"
+content_type = "text/html"

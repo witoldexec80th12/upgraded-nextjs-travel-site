@@ -1,0 +1,27 @@
+# Bran Castle
+
+Public content uses locale-prefixed URLs. Some locales provide translated
+navigation only, with explicitly marked English content fallbacks.
+Only genuine content translations are advertised as language alternates.
+Booking is a demo; no real payments are taken.
+
+## Key pages
+- https://example.com/en
+- https://example.com/en/faq
+- https://example.com/en/activities
+- https://example.com/en/contact
+- https://example.com/en/terms
+- https://example.com/en/privacy
+- https://example.com/en/cookies
+- https://example.com/en/tours/castle-tickets
+- https://example.com/en/guides/article-1
+- https://example.com/en/guides/article-2
+- https://example.com/en/guides/article-3
+- https://example.com/en/guides/castle-grounds-walk
+- https://example.com/en/guides/getting-to-peles-from-station
+- https://example.com/en/guides/pelisor-castle-what-to-do
+- https://example.com/en/guides/visiting-peles-castle
+- https://example.com/en/guides/armoury-of-peles-castle
+- https://example.com/en/guides/history-and-making-of-peles-castle
+- https://example.com/en/guides/rooms-of-peles-castle
+- https://example.com/en/guides/queen-marie-bran-castle

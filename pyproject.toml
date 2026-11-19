@@ -1,0 +1,25 @@
+[project]
+name = "alta-via-availability"
+version = "0.1.0"
+description = "Read-only availability checks and admin tools for Alta Via 1 huts."
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.20.1",
+    "beautifulsoup4>=4.15.0",
+    "fastapi>=0.162.2",
+    "httpx2>=2.16.0",
+    "itsdangerous>=2.2.0",
+    "jinja2>=3.1.6",
+    "psycopg[binary]>=3.3.8",
+    "pyairtable>=3.5.1",
+    "python-multipart>=0.0.33",
+    "requests>=2.34.2",
+    "sqlalchemy>=2.1.8",
+    "uvicorn>=0.54.0",
+]
+
+[dependency-groups]
+dev = ["httpx>=0.28.1"]
+
+[tool.uv]
+package = false

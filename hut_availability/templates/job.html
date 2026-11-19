@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Check #{{ job.id }} · Alta Via availability{% endblock %}
+{% block head %}{% if refresh %}<meta http-equiv="refresh" content="3">{% endif %}{% endblock %}
+{% block content %}
+  <div class="row spread">
+    <div><h1>Check #{{ job.id }}</h1><p class="muted">{{ job.date_from }} to {{ job.date_to }} · {{ job.people }} people</p></div>
+    <a class="button secondary" href="/admin">Back to availability</a>
+  </div>
+  <section class="card">
+    <p>Status: <strong>{{ job.status }}</strong></p>
+    <p>Huts checked: <strong>{{ job.huts_done }} / {{ job.huts_total }}</strong></p>
+    {% set percentage = (100 * job.huts_done / job.huts_total) if job.huts_total else (100 if job.status == "done" else 0) %}
+    <div class="progress" role="progressbar" aria-valuenow="{{ percentage|int }}" aria-valuemin="0" aria-valuemax="100"><span style="width:{{ percentage|int }}%"></span></div>
+    {% if job.error %}<div class="alert">{{ job.error }}</div>{% endif %}
+    {% if refresh %}<p class="muted">This page refreshes while the check is queued or running.</p>{% endif %}
+  </section>
+  <section class="card">
+    <h2>Included huts</h2>
+    {% for hut in huts %}<p>{{ hut.name }} · {{ hut.cluster }} · {{ hut.system }}{% if hut.system == "manual" %} · check by hand{% endif %}</p>{% endfor %}
+  </section>
+{% endblock %}

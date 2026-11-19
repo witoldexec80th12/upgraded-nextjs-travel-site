@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}History · {{ hut.name }}{% endblock %}
+{% block content %}
+  <div class="row spread">
+    <div><h1>{{ hut.name }}</h1><p class="muted">Cluster {{ hut.cluster }} · Availability check history</p></div>
+    <a class="button secondary" href="/admin">Back to availability</a>
+  </div>
+  <section class="card">
+    <form method="get" action="/admin/history/{{ hut.key }}" class="row">
+      <div><label for="night">Night</label><input id="night" type="date" name="night" value="{{ night }}" required></div>
+      <div><label for="people">People</label><input id="people" type="number" name="people" min="1" max="12" value="{{ people }}" required></div>
+      <button type="submit">View history</button>
+    </form>
+  </section>
+  <section class="card">
+    <h2>Checks for {{ night or "selected night" }} · {{ people }} people</h2>
+    {% if rows %}
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked at</th><th>Status</th><th>Beds free</th><th>Details</th></tr></thead>
+        <tbody>
+          {% for row in rows %}
+          <tr><td>{{ row.checked_at }}</td><td><span class="status {{ row.status }}">{{ row.status|replace("_"," ") }}</span></td><td>{{ row.beds_free if row.beds_free is not none else "—" }}</td><td>{{ row.detail or "" }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% elif night %}<p class="muted">No checks have been recorded for this hut, night, and group size.</p>
+    {% else %}<p class="muted">Choose a night to review its check history.</p>{% endif %}
+  </section>
+{% endblock %}

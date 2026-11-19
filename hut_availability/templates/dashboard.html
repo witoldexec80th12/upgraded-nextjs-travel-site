@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Availability · Alta Via 1{% endblock %}
+{% block content %}
+  <div class="row spread">
+    <div>
+      <h1>Hut availability</h1>
+      <p class="muted">Read-only checks of public booking availability. No booking details are submitted.</p>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>Run an availability check</h2>
+    <form method="post" action="/admin/checks">
+      <input type="hidden" name="csrf" value="{{ csrf_token }}">
+      <div class="row">
+        <div><label for="date_from">First night</label><input id="date_from" type="date" name="date_from" value="{{ date_from }}" required></div>
+        <div><label for="date_to">Last night</label><input id="date_to" type="date" name="date_to" value="{{ date_to }}" required></div>
+        <div><label for="people">People</label><input id="people" type="number" name="people" min="1" max="12" value="{{ people }}" required></div>
+      </div>
+      <div class="checklists">
+        <div class="checklist">
+          <strong>Clusters</strong>
+          {% for item in clusters %}
+          <label class="check"><input type="checkbox" name="clusters" value="{{ item }}"> {{ item }}</label>
+          {% endfor %}
+        </div>
+        <div class="checklist">
+          <strong>Individual huts</strong>
+          {% for hut in huts %}
+          <label class="check"><input type="checkbox" name="hut_keys" value="{{ hut.key }}"> {{ hut.name }} <small>({{ hut.cluster }})</small></label>
+          {% endfor %}
+        </div>
+      </div>
+      <p class="muted"><small>Leave clusters and huts blank to check every active hut. Manual huts are listed below and are never scraped.</small></p>
+      <label class="check"><input type="checkbox" name="force"> Ignore the three-hour cache</label>
+      <button type="submit">Queue check</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="row spread">
+      <div>
+        <h2>Latest availability</h2>
+        <p class="muted">Showing {{ people }} people · {{ date_from }} to {{ date_to }}{% if selected_cluster %} · cluster {{ selected_cluster }}{% endif %}</p>
+      </div>
+      <div class="actions">
+        <a class="button secondary" href="/admin/export.csv?date_from={{ date_from }}&date_to={{ date_to }}&people={{ people }}{% if selected_cluster %}&cluster={{ selected_cluster | urlencode }}{% endif %}">Download CSV</a>
+        <form method="get" action="/admin" class="row">
+          <label for="filter_cluster">Filter cluster</label>
+          <select id="filter_cluster" name="cluster">
+            <option value="">All</option>
+            {% for item in clusters %}<option value="{{ item }}" {% if item == selected_cluster %}selected{% endif %}>{{ item }}</option>{% endfor %}
+          </select>
+          <input type="hidden" name="date_from" value="{{ date_from }}">
+          <input type="hidden" name="date_to" value="{{ date_to }}">
+          <input type="hidden" name="people" value="{{ people }}">
+          <button class="secondary" type="submit">Apply</button>
+        </form>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Hut</th>{% for day in days %}<th>{{ day.strftime("%a") }}<br>{{ day.isoformat() }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% set ns = namespace(last_cluster="") %}
+          {% for hut in huts %}
+            {% if hut.system != "manual" and (not selected_cluster or hut.cluster == selected_cluster) %}
+              {% if ns.last_cluster != hut.cluster %}
+                <tr><th colspan="{{ days|length + 1 }}">Cluster {{ hut.cluster }}</th></tr>
+                {% set ns.last_cluster = hut.cluster %}
+              {% endif %}
+              <tr>
+                <td class="hut-name"><a href="/admin/history/{{ hut.key }}">{{ hut.name }}</a><br><small>{{ hut.system }}</small></td>
+                {% for day in days %}
+                  {% set cell = grid.get((hut.key, day)) %}
+                  <td title="{% if cell %}{{ cell.detail or '' }} · checked {{ cell.checked_at }}{% endif %}">
+                    {% if cell %}
+                      <span class="status {{ cell.status }}">{{ cell.status|replace("_"," ") }}</span>
+                      {% if cell.beds_free is not none %}<br><small>{{ cell.beds_free }} beds</small>{% endif %}
+                    {% else %}<span class="empty">—</span>{% endif %}
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {% if manual_huts %}
+  <section class="card">
+    <h2>Check these huts by hand</h2>
+    <p class="muted">These booking pages are manual-only; the service will not attempt to scrape them.</p>
+    {% for hut in manual_huts %}
+      {% if not selected_cluster or hut.cluster == selected_cluster %}
+      <div class="manual">
+        <strong>{{ hut.name }}</strong> · Cluster {{ hut.cluster }}
+        {% if hut.booking_url %}· <a href="{{ hut.booking_url }}" target="_blank" rel="noopener noreferrer">Booking page</a>{% endif %}
+        {% if hut.notes %}<br><small>{{ hut.notes }}</small>{% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <section class="card">
+    <h2>Recent checks</h2>
+    {% if jobs %}
+      <div class="job-list">
+        {% for job in jobs %}
+        <a class="job-item" href="/admin/jobs/{{ job.id }}">
+          <span>#{{ job.id }} · {{ job.date_from }} to {{ job.date_to }} · {{ job.people }} people</span>
+          <span><strong>{{ job.status }}</strong> · {{ job.huts_done }}/{{ job.huts_total }} huts</span>
+        </a>
+        {% endfor %}
+      </div>
+    {% else %}<p class="muted">No checks have run yet.</p>{% endif %}
+  </section>
+{% endblock %}

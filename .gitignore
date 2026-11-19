@@ -1,0 +1,16 @@
+/node_modules/
+/dist/
+/.next/
+/out/
+*.tsbuildinfo
+/generated-artifacts/
+/artifacts/api-server/dist/
+/.cache/
+/.pythonlibs/
+/.venv/
+/screenshots/
+__pycache__/
+*.py[cod]
+/.env
+/.env.*
+!.env.example

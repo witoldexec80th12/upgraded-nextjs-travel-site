@@ -1,0 +1,27 @@
+key,name,cluster,system,config,active,booking_url,notes
+fodara,Rifugio Fodara Vedla,A,suedtirol,"{""property"": 12869}",true,https://www.fodara.it/en,
+pederue,Pederü Berggasthaus,A,suedtirol,"{""property"": 10716}",true,https://www.pederue.it/en,
+biella,Rifugio Biella,A,manual,{},true,https://www.planyo.com/booking/Rifugio-Biella,Planyo calendar; scraper not built yet
+sennes,Rifugio Sennes,A,manual,{},true,https://sennes.com/en/contact/index.php,Request form only
+fanes,Ücia Fanes-Hütte (Rifugio Fanes),B,suedtirol,"{""property"": 13308}",true,https://www.rifugiofanes.com/prenota,
+lavarella,Rifugio Lavarella,B,suedtirol,"{""property"": 13004}",true,https://lavarella.it/en/book-online,Dorm beds booked one by one
+muntagnoles,Ücia dles Muntagnoles,B,manual,{},true,https://www.muntagnoles.com/index.php/it/info-prenotazioni,Email / phone
+scotoni,Rifugio Scotoni,C,bukly,"{""sub"": ""scotoni""}",true,https://scotoni.bukly.com/en-us,
+lagazuoi,Rifugio Lagazuoi,C,foundation,"{""cal"": ""https://www.rifugiolagazuoi.com/IT/disponibilita.php"", ""search"": ""https://www.rifugiolagazuoi.com/IT/prenotazione1.php""}",true,https://www.rifugiolagazuoi.com/IT/disponibilita.php,
+colgallina,Rifugio Col Gallina (Passo Falzarego),C,bukly,"{""sub"": ""rifugiocolgallina""}",true,https://rifugiocolgallina.bukly.com/en-us/,Baggage transport
+dibona,Rifugio Angelo Dibona,C,dibona_app,"{""url"": ""https://www.rifugiodibona.app/api/search""}",true,https://www.rifugiodibona.app/,B&B EUR 50 / HB EUR 75 per bed; 2027 not open on 3 Nov 2026
+giussani,Rifugio Camillo Giussani,C,manual,{},true,https://www.rifugiogiussani.com/prenotazioni/,Phone/email + EUR 20 pp deposit
+valparola,Rifugio Passo Valparola,C,manual,{},true,,Phone only +39 0471 193 0221
+sassdlacia,Camping Sass Dlacia,C (provisional),suedtirol,"{""property"": 11980}",true,https://campingsassdlacia.it/en/booking,Yes/no includes tent pitches
+armentarola,Hotel Armentarola,C (provisional),suedtirol,"{""property"": 13136}",true,https://www.armentarola.com/en/book,
+sassodistria,Hotel Al Sasso di Stria,C (provisional),manual,{},true,https://alsassodistria.it/,Vertical Booking with bot check: do not scrape
+ciasasalares,Ciasa Salares,C (provisional),manual,{},true,https://www.ciasasalares.it/,Vertical Booking with bot check: do not scrape
+averau,Rifugio Averau,D,bukly,"{""sub"": ""rifugioaverau""}",true,https://rifugioaverau.bukly.com/en-us,
+scoiattoli,Rifugio Scoiattoli,D,manual,{},true,http://www.rifugioscoiattoli.it/booking/,Custom form; scraper not built yet
+5torri,Rifugio 5 Torri,D,manual,{},true,http://www.rifugio5torri.it/,Booking page not found
+nuvolau,Rifugio Nuvolau,D,manual,{},true,https://rifugionuvolau.it/en/booking/,Own booking opens Jan 2027: recheck
+crodadalago,Croda da Lago / Palmieri,E,manual,{},true,https://www.crodadalago.it/prenotazioni/,Request form; TMB Planner lists it: recheck
+cittadifiume,Rifugio Città di Fiume,E,manual,{},true,https://rifugiocittadifiume.it/prenota/,WordPress plugin date search; scraper not built yet
+staulanza,Rifugio Passo Staulanza,E,foundation,"{""cal"": ""https://www.staulanza.it/Booking/IT/disponibilita.php"", ""search"": ""https://www.staulanza.it/Booking/IT/prenotazione1.php""}",true,https://www.staulanza.it/Booking/IT/disponibilita.php,
+coldai,Rifugio Coldai,2nd half (TBD),foundation,"{""cal"": ""https://rifugiocoldai.com/Booking/IT/disponibilita.php"", ""search"": ""https://rifugiocoldai.com/Booking/IT/prenotazione1.php"", ""extra"": {""codAgenzia"": ""0""}}",true,https://rifugiocoldai.com/Booking/index_en.php,Search path may be /Booking/EN/: confirm
+carestiato,Rifugio Carestiato,2nd half (TBD),foundation,"{""cal"": ""https://www.rifugiocarestiato.com/Booking/IT/disponibilita.php"", ""search"": ""https://www.rifugiocarestiato.com/Booking/IT/prenotazione1.php"", ""extra"": {""codAgenzia"": ""0""}}",true,https://www.rifugiocarestiato.com/Booking/index.php,
